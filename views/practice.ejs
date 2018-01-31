@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./header %>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    var socket = io({
+  query: {
+    id: '<%= user.id %>'
+  }
+});
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+  </head>
+  <body>
+    <% include ./navigation-logged-in %>
+
+    <div class="center-section offset-navbar" id="main-container">
+      <div class="row mt-4">
+        <div class="offset-md-2 col-md-8 flex-center">
+          <h1 id="content-title">Choose a Question Bank <span class="fa fa-battery-1"></span></h1>
+        </div>
+      </div>
+      <div class="row" id="choose-bank-container">
+        <div class="offset-md-2 col-md-8">
+          <ul class="question-banks-container">
+            <% for (let i = 0; i < banks.length; ++i) { %>
+              <% if (banks[i].questions.length !== 0) { %>
+                <li class="choose-card question-bank-card" data-id="<%= banks[i].id %>">
+                  <div class="question-bank-label">
+                    <h1><%= banks[i].title %></h1>
+                  </div>
+                  <ul class="list-group question-bank-questions">
+                    <% for (let j = 0; j < banks[i].questions.length; ++j) { %>
+                      <li class="list-group-item"><%= banks[i].questions[j] %></li>
+                    <% } %>
+                  </ul>
+                </li>
+              <% } %>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+
+  </body>
+  <footer>
+
+    <% include ./footer %>
+    <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+    <script src="javascripts/practice.js"></script>
+  </footer>
+</html>

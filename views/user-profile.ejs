@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./header %>
+  </head>
+  <body>
+    <% include ./navigation-logged-in %>
+
+    <div class="center-section offset-navbar">
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <h1 id="user-label"><span class="fa fa-user mr-3"></span><%= username %></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-8">
+          <ul class="question-banks-container">
+            <% for (let i = 0; i < banks.length; ++i) { %>
+              <li class="question-bank-card">
+                <div class="question-bank-label">
+                  <span class="fa fa-question-circle-o fa-4x"></span>
+                  <h1><%= banks[i].title %></h1>
+                  <div class="btn btn-2 mt-0 add-bank">Add</div>
+
+                </div>
+                <ul class="list-group question-bank-questions">
+                  <% for (let j = 0; j < banks[i].questions.length; ++j) { %>
+                    <li class="list-group-item"><%= banks[i].questions[j] %></li>
+                  <% } %>
+                </ul>
+              </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <% include ./footer %>
+    <script src="javascripts/user-profile.js"></script>
+  </footer>
+</html>

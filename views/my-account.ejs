@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./header %>
+  </head>
+  <body>
+    <% include ./navigation-logged-in %>
+
+    <div class="center-section row">
+      <div class="offset-md-2 col-md-2 no-gutters flex-center">
+        <h1>My Account</h1>
+      </div>
+      <div class="col-md-6 no-gutters flex-center">
+        <form class="authentication-box" id="update-account">
+          <div class="form-group">
+            <span class="fa fa-user-circle-o mr-2"></span>
+            <label for="username">Username</label>
+            <input type="text" class="form-control" value="<%= user.username %>" readonly>
+          </div>
+          <div class="form-group">
+            <span class="fa fa-envelope mr-2"></span>
+            <label for="email">Email</label>
+            <input type="text" class="form-control" value="<%= user.email %>" readonly>
+          </div>
+          <div class="form-group">
+            <span class="fa fa-lock mr-2"></span>
+            <label for="password">Old Password</label>
+            <input type="password" class="form-control" id="old-password">
+          </div>
+          <div class="form-group">
+            <span class="fa fa-lock mr-2"></span>
+            <label for="password">New Password</label>
+            <input type="password" class="form-control" id="new-password">
+          </div>
+          <div class="form-group">
+            <span class="fa fa-lock mr-2"></span>
+            <label for="password">Confirm New Password</label>
+            <input type="password" class="form-control" id="confirm-new-password">
+          </div>
+          <button class="btn btn-1 float-right" type="submit">Update</button>
+        </form>
+      </div>
+    </div>
+
+  </body>
+  <footer>
+
+    <% include ./footer %>
+    <script src="javascripts/my-account.js"></script>
+  </footer>
+</html>

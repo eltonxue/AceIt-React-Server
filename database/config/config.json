@@ -1,0 +1,28 @@
+{
+  "development": {
+    "username": "aceit-postgres",
+    "password": "password",
+    "database": "aceit-devs",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "aceit-postgres",
+    "password": "password",
+    "database": "test-aceit-devs",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "aceit-postgres",
+    "password": "password",
+    "database": "aceit-devs",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}

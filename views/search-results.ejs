@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./header %>
+  </head>
+  <body>
+    <% include ./navigation-logged-in %>
+
+    <div class="center-section offset-navbar">
+      <div class="row mt-4">
+        <div class="offset-md-2 col-md-6">
+          <h1>Search Results</h1>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <ul class="offset-md-2 col-md-10" id="search-results">
+          <% for (let i = 0; i < users.length; ++i) { %>
+            <li class="username-card">
+              <h1><%= users[i].username.trim() %></h1>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <% include ./footer %>
+    <script src="javascripts/search-results.js"></script>
+  </footer>
+</html>

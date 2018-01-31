@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./header %>
+  </head>
+  <body>
+    <% include ./navigation-logged-out %>
+    <div class="center-section row">
+      <div class="offset-md-2 col-md-2 no-gutters flex-center">
+        <h1>Login</h1>
+      </div>
+      <div class="col-md-6 no-gutters flex-center">
+        <form class="authentication-box" id="login">
+          <div class="form-group">
+            <span class="fa fa-user-circle-o mr-2"></span>
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username">
+          </div>
+          <div class="form-group">
+            <span class="fa fa-lock mr-2"></span>
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password">
+          </div>
+          <button class="btn btn-1 float-right" type="submit" id="login-button">Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <% include ./footer %>
+    <script src="javascripts/login.js"></script>
+  </footer>
+</html>

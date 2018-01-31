@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./header %>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <% include ./navigation-logged-in %>
+
+    <div class="center-section offset-navbar">
+      <div class="row mt-4">
+        <div class="offset-md-2 col-md-6">
+          <h1>Question Banks</h1>
+          <input id="search-banks" placeholder="Search by title..." onKeyUp="onSearch(event, this)"></input>
+        </div>
+        <div class="col-md-2 flex-right">
+          <span class="fa fa-plus-square fa-3x" id="add-bank"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-md-2 col-md-8">
+          <ul class="question-banks-container" id="main-container">
+            <% for (let i = banks.length - 1; i >= 0; --i) { %>
+              <li class="question-bank-card" data-id="<%= banks[i].id %>">
+                <div class="question-bank-label">
+                  <span class="fa fa-question-circle-o fa-4x"></span>
+                  <h1 class="title"><%= banks[i].title %></h1>
+                  <div class="btn btn-3 remove-question-bank">Remove</div>
+                </div>
+                <ul class="list-group question-bank-questions">
+                  <% for (let j = 0; j < banks[i].questions.length; ++j) { %>
+                    <li class="list-group-item"><%= banks[i].questions[j] %><span class="fa fa-close ml-auto"></span></li>
+                  <% } %>
+                  <input class="list-group-item list-group-item-info mt-2" onKeyPress="onAdd(event, this)" maxlength="250"></input>
+                  <div class="btn btn-2 mt-2 add-question">Add Question</div>
+                  <span class="last-updated">Last Updated: <%= 1 + banks[i].updatedAt.getMonth() %>/<%= banks[i].updatedAt.getDate() %>/<%= banks[i].updatedAt.getFullYear() %> @<%= banks[i].updatedAt.getHours() < 10 ? `0${String(banks[i].updatedAt.getHours())}` : banks[i].updatedAt.getHours() %>:<%= banks[i].updatedAt.getMinutes() < 10 ? `0${String(banks[i].updatedAt.getMinutes())}` : banks[i].updatedAt.getMinutes() %>:<%= banks[i].updatedAt.getSeconds() < 10 ? `0${String(banks[i].updatedAt.getSeconds())}` : banks[i].updatedAt.getSeconds() %></span>
+                </ul>
+              </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <% include ./footer %>
+    <script src="javascripts/question-banks.js"></script>
+  </footer>
+</html>
